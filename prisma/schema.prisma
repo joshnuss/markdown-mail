@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum SubscriptionStatus {
+  PENDING
+  SUBSCRIBED
+  UNSUBSCRIBED
+}
+
+model Subscriber {
+  id Int @id @default(autoincrement())
+
+  email String @unique
+  firstName String
+  lastName String
+  tags String[]
+  status SubscriptionStatus
+
+  confirmationCode String
+  confirmedAt DateTime?
+
+  unsubscribeCode String
+  unsubscribedAt DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
