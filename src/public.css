@@ -1,0 +1,54 @@
+@import "open-props/style";
+@import "open-props/normalize";
+@import "open-props/buttons";
+
+body {
+  background: var(--gradient-3);
+  margin: 0;
+  font-family: Inter;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  place-content: center;
+}
+main {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  background: var(--gray-2);
+  box-shadow: var(--shadow-4);
+  padding: 38px;
+  border-radius: var(--radius-2);
+}
+
+h1 {
+  margin: 0 0 var(--size-6) 0;
+  font-size: var(--size-4);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-2);
+}
+input {
+  background: var(--gray-1);
+  border: solid var(--border-size-1) var(--gray-3);
+}
+
+input, button {
+  padding: 5px;
+}
+
+form input.error {
+  border-color: var(--red-4);
+}
+
+button {
+  background: var(--pink-5);
+  text-shadow: none;
+}
