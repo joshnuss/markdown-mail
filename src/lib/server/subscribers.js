@@ -18,3 +18,19 @@ export function subscribe(data) {
     }
   })
 }
+
+export async function unsubscribe(id, code) {
+  const user = await find(id)
+
+  if (!user || user.unsubscribeCode != code) {
+    return false
+  }
+
+  return db.subscriber.update({
+    where: { id },
+    data: {
+      status: 'UNSUBSCRIBED',
+      unsubscribedAt: new Date()
+    }
+  })
+}
