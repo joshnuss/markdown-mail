@@ -1,5 +1,15 @@
 import * as subscribers from '$lib/server/subscribers'
-import { error } from '@sveltejs/kit'
+import { error, redirect } from '@sveltejs/kit'
+
+export const actions = {
+  delete: async ({ params }) => {
+    const id = +params.id
+
+    await subscribers.remove(id)
+
+    throw redirect(303, "/subscribers")
+  }
+}
 
 export async function load({ params }) {
   const id = +params.id

@@ -34,3 +34,9 @@ export async function unsubscribe(id, code) {
     }
   })
 }
+
+export function remove(id) {
+  return db.subscriber.delete({
+    where: { id }
+  })
+}
