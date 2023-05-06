@@ -8,13 +8,23 @@ export function find(id) {
   return db.subscriber.findUnique({ where: { id }})
 }
 
-export function subscribe(data) {
-  return db.subscriber.create({
-    data: {
-      ...data,
+export function subscribe({ email, firstName, lastName }) {
+  return db.subscriber.upsert({
+    where: { email },
+    create: {
+      email,
+      firstName,
+      lastName,
       status: 'PENDING',
       confirmationCode: crypto.randomUUID(),
       unsubscribeCode: crypto.randomUUID(),
+    },
+    update: {
+      status: 'PENDING',
+      confirmationCode: crypto.randomUUID(),
+      confirmedAt: null,
+      unsubscribeCode: crypto.randomUUID(),
+      unsubscribedAt: null,
     }
   })
 }
