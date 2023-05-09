@@ -1,11 +1,13 @@
 <script>
-  export let form
+  import { formHelper } from '$lib/formHelper'
 
-  function error(fieldName) {
-    if (!form?.errors) return
-
-    return form.errors.find(error => error.key == fieldName)
-  }
+  let form = formHelper({
+    defaults: {
+      email: '',
+      firstName: '',
+      lastName: ''
+    }
+  })
 </script>
 
 <h1>Subscribe</h1>
@@ -14,22 +16,22 @@
   <input
     type="email"
     name="email"
-    class:error={error('email')}
-    value={form?.email ?? ''}
+    class:error={form.error('email')}
+    value={form.fields.email}
     placeholder="E-mail">
 
   <input
     type="text"
     name="firstName"
-    class:error={error('firstName')}
-    value={form?.firstName || ''}
+    class:error={form.error('firstName')}
+    value={form.fields.firstName}
     placeholder="First name">
 
   <input
     type="text"
     name="lastName"
-    class:error={error('lastName')}
-    value={form?.lastName || ''}
+    class:error={form.error('lastName')}
+    value={form.fields.lastName}
     placeholder="Last name">
 
   <button>I want in!</button>

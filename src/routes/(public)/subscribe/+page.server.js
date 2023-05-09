@@ -1,7 +1,7 @@
 import { subscribe } from '$lib/server/subscribers'
-import { redirect, fail } from '@sveltejs/kit'
+import { redirect } from '@sveltejs/kit'
 import { object, string, nonempty } from 'superstruct'
-import { email } from '$lib/server/validation'
+import { email, validate } from '$lib/server/validation'
 
 const Subscriber = object({
   email,
@@ -10,25 +10,9 @@ const Subscriber = object({
 })
 
 export const actions = {
-  default: async ({ request }) => {
-    const form = await request.formData()
-    const input = {
-      firstName: form.get('firstName'),
-      lastName: form.get('lastName'),
-      email: form.get('email'),
-    }
-
-    const [err, data] = Subscriber.validate(input)
-
-    if (err) {
-      return fail(400, {
-        ...input,
-        errors: err.failures()
-      })
-    }
-
+  default: validate(Subscriber, async (data) => {
     await subscribe(data)
 
     throw redirect(303, "/subscribe/complete")
-  }
+  })
 }
