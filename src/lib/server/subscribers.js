@@ -1,7 +1,37 @@
 import { db } from './db'
 
-export function all() {
-  return db.subscriber.findMany()
+const pageSize = 20
+
+export async function search({ text, status, sort, page }) {
+  const where = {}
+
+  if (text) {
+    where.OR = [
+      { email: { contains: text, mode: 'insensitive'}},
+      { firstName: { contains: text, mode: 'insensitive'}},
+      { lastName: { contains: text, mode: 'insensitive'}},
+    ]
+  }
+
+  if (status) {
+    where.status = status
+  }
+
+  const [ count, records ] = await Promise.all([
+    db.subscriber.count({ where }),
+    db.subscriber.findMany({
+      where,
+      skip: page * pageSize,
+      take: pageSize,
+      orderBy: {
+        createdAt: sort == 'NEWEST' ? 'desc' : 'asc'
+      }
+    })
+  ])
+
+  const pages = Math.ceil(count/pageSize)
+
+  return { records, count, page, pages }
 }
 
 export function find(id) {
