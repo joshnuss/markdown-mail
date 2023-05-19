@@ -70,6 +70,8 @@ model Message {
   broadcastId Int
   broadcast Broadcast @relation(fields: [broadcastId], references: [id])
 
+  sentAt DateTime?
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
