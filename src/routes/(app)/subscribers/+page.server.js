@@ -2,8 +2,8 @@ import * as subscribers from '$lib/server/subscribers'
 
 export async function load({ url }) {
   const text = url.searchParams.get('search')
-  const status = url.searchParams.get('status')
-  const sort = url.searchParams.get('sort') || 'newset'
+  const status = url.searchParams.get('status') || ''
+  const sort = url.searchParams.get('sort') || 'NEWEST'
   const page = +(url.searchParams.get('page') || 1)
 
   return {
