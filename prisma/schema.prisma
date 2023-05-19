@@ -33,6 +33,7 @@ model Subscriber {
 
   messages Message[]
 
+  createdOn DateTime @default(now()) @db.Date
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }

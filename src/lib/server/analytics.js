@@ -24,3 +24,10 @@ export function unsubscribed() {
     where: { status: 'UNSUBSCRIBED' }
   })
 }
+
+export function byDate() {
+  return db.subscriber.groupBy({
+    by: ['createdOn'],
+    _count: true
+  })
+}

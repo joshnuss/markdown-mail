@@ -6,6 +6,7 @@ export async function load() {
       total: await analytics.subscribers(),
       today: await analytics.subscribersToday(),
       unsubscribes: await analytics.unsubscribed(),
-    }
+    },
+    dates: await analytics.byDate()
   }
 }

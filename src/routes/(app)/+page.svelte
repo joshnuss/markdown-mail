@@ -1,7 +1,8 @@
 <script>
+  import { format } from 'date-fns'
   export let data
 
-  $: ({ count } = data)
+  $: ({ count, dates } = data)
 </script>
 <h1>Dashboard</h1>
 
@@ -21,3 +22,25 @@
     <span>{((count.unsubscribes / count.total)*100).toFixed(2)}%</span>
   </article>
 </section>
+
+<table>
+  <thead>
+    <tr>
+      <th>Date</th>
+      <th class="number">Count</th>
+    </tr>
+
+    {#each dates as record}
+      <tr>
+        <td>{format(record.createdOn, 'dd MMM')}</td>
+        <td class="number">{record._count}</td>
+      </tr>
+    {/each}
+  </thead>
+</table>
+
+<style>
+  table {
+    max-width: 600px;
+  }
+</style>
