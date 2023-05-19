@@ -10,7 +10,7 @@ const Subscriber = object({
 })
 
 export const actions = {
-  default: validate(Subscriber, async (data) => {
+  default: validate(Subscriber, async ({ data }) => {
     await subscribe(data)
 
     throw redirect(303, "/subscribe/complete")
