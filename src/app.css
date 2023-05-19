@@ -18,10 +18,6 @@ a, a:visited {
   color: var(--gray-7);
 }
 
-section {
-  margin-bottom: 4rem;
-}
-
 form input, form select, form textarea {
   padding: 4px;
   border-radius: 5px;
@@ -37,6 +33,11 @@ form button, .button {
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
+}
+
+form button.delete {
+  color: var(--gray-6);
+  background: var(--gray-4);
 }
 
 form label {
@@ -185,4 +186,19 @@ main {
 
 .stats .number {
   text-align: right;
+}
+
+section.title {
+  display: flex;
+  justify-content: space-between;
+
+  .button, button {
+    align-self: baseline;
+    padding: 0.5rem 1rem;
+  }
+
+  .actions {
+    display: flex;
+    gap: 5px;
+  }
 }
