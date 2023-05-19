@@ -35,7 +35,15 @@ export async function search({ text, status, sort, page }) {
 }
 
 export function find(id) {
-  return db.subscriber.findUnique({ where: { id }})
+  return db.subscriber.findUnique({
+    where: { id },
+  })
+}
+
+export function findMessages(subscriberId) {
+  return db.message.findMany({
+    where: { subscriberId }
+  })
 }
 
 export function subscribe({ email, firstName, lastName }) {

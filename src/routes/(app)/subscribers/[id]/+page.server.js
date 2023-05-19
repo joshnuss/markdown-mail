@@ -18,6 +18,9 @@ export async function load({ params }) {
   if (!subscriber) throw error(404)
 
   return {
-    subscriber
+    subscriber,
+    stream: {
+      messages: subscribers.findMessages(id)
+    }
   }
 }
