@@ -21,7 +21,11 @@
 
   <section class="actions">
     <form method="POST" action="?/delete" on:submit={confirmDelete}>
-      <button>Delete</button>
+      <button class="delete">Delete</button>
+    </form>
+
+    <form method="POST" action="?/send">
+      <button>Send</button>
     </form>
   </section>
 </section>

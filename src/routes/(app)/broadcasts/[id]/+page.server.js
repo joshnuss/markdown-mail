@@ -32,5 +32,13 @@ export const actions = {
     await broadcasts.remove(id)
 
     throw redirect(303, `/broadcasts`)
+  },
+
+  send: async ({ params }) => {
+    const id = +params.id
+
+    await broadcasts.send(id)
+
+    throw redirect(303, `/broadcasts`)
   }
 }

@@ -4,15 +4,18 @@
   $: ({ subscriber } = data)
 </script>
 
-<h1>{subscriber.email}</h1>
+<section class="title">
+  <h1>{subscriber.email}</h1>
+
+  <form action="/subscribers/{subscriber.id}?/delete" method="post">
+    <button class="delete">Delete</button>
+  </form>
+</section>
+
 
 <p>E-mail: {subscriber.email}</p>
 <p>First name: {subscriber.firstName}</p>
 <p>Last name: {subscriber.lastName}</p>
-
-<form action="/subscribers/{subscriber.id}?/delete" method="post">
-  <button>Delete</button>
-</form>
 
 <section>
   <h2>Messages</h2>
