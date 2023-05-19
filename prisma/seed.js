@@ -13,3 +13,28 @@ await db.subscriber.createMany({
     }
   })
 })
+
+const subjects = ['Welcom aboard!', '10 svelte tips']
+const subscribers = await db.subscriber.findMany()
+
+for (let subject of subjects) {
+  const content = faker.lorem.paragraphs(4)
+
+  await db.broadcast.create({
+    data: {
+      subject,
+      content,
+      messages: {
+        create: subscribers.map(subscriber => ({
+          subject,
+          content,
+          subscriber: {
+            connect: {
+              id: subscriber.id
+            }
+          }
+        }))
+      }
+    }
+  })
+}
