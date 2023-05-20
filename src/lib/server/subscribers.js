@@ -17,21 +17,13 @@ export async function search({ text, status, sort, page }) {
     where.status = status
   }
 
-  const [ count, records ] = await Promise.all([
-    db.subscriber.count({ where }),
-    db.subscriber.findMany({
-      where,
-      skip: page * pageSize,
-      take: pageSize,
-      orderBy: {
-        createdAt: sort == 'NEWEST' ? 'desc' : 'asc'
-      }
-    })
-  ])
-
-  const pages = Math.ceil(count/pageSize)
-
-  return { records, count, page, pages }
+  return db.subscriber.paginate({
+    page,
+    where,
+    orderBy: {
+      createdAt: sort == 'NEWEST' ? 'desc' : 'asc'
+    }
+  })
 }
 
 export function find(id) {
