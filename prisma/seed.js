@@ -14,7 +14,7 @@ await db.subscriber.createMany({
   })
 })
 
-const subjects = ['Welcom aboard!', '10 svelte tips']
+const subjects = ['Welcome aboard!', '10 svelte tips']
 const subscribers = await db.subscriber.findMany()
 
 for (let subject of subjects) {
