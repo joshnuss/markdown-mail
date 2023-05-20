@@ -35,7 +35,6 @@
       <th>Last name</th>
       <th>Status</th>
       <th>Created</th>
-      <th>Referred By</th>
     </tr>
   </thead>
   <tbody>
@@ -46,7 +45,6 @@
         <td>{subscriber.lastName}</td>
         <td>{subscriber.status}</td>
         <td>{subscriber.createdAt}</td>
-        <td>{subscriber.referredBy}</td>
       </tr>
     {/each}
   </tbody>
