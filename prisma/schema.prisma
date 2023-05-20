@@ -31,6 +31,8 @@ model Subscriber {
   unsubscribeCode String
   unsubscribedAt DateTime?
 
+  referredBy String @default("")
+
   messages Message[]
 
   createdOn DateTime @default(now()) @db.Date
