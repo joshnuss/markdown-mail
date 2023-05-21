@@ -29,14 +29,16 @@
       <th>Date</th>
       <th class="number">Count</th>
     </tr>
+  </thead>
 
+  <tbody>
     {#each dates as record}
       <tr>
         <td>{format(record.createdOn, 'dd MMM')}</td>
         <td class="number">{record._count}</td>
       </tr>
     {/each}
-  </thead>
+  </tbody>
 </table>
 
 <style>

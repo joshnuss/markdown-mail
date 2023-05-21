@@ -12,7 +12,6 @@
   </form>
 </section>
 
-
 <p>E-mail: {subscriber.email}</p>
 <p>First name: {subscriber.firstName}</p>
 <p>Last name: {subscriber.lastName}</p>
