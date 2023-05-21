@@ -1,38 +1,30 @@
-# create-svelte
+markdown-mail
+-------------
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
+Example of using Prisma + SvelteKit.
 
-## Creating a project
+From the video course [Build database apps with SvelteKit](https://joshuanussbaum.podia.com/data-driven-sveltekit-with-prisma)
+## Overview
 
-If you're seeing this, you've probably already done this step. Congrats!
+This is an "E-mail service provider" app, similar to MailChimp or CovertKit.
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+## Course covers:
 
-# create a new project in my-app
-npm create svelte@latest my-app
-```
+- Setup and deployment
+- Seeding
+- CRUD (create, read, update, delete, upsert)
+- Searching, filtering, and sorting
+- Pagination
+- Relationships
+- Transactions
+- Aggregation
+- Queueing
+- Generators
+- Middlewares
+- Extensions
+- Deployment with Vercel and Neon Postgres
+- Migrating in production
 
-## Developing
+## License
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+MIT
