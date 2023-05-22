@@ -1,12 +1,11 @@
 markdown-mail
 -------------
 
-Example of using Prisma + SvelteKit.
+This is an "E-mail service provider" app, similar to MailChimp or CovertKit.
+
+It's an example of using Prisma + SvelteKit.
 
 From the video course [Build database apps with SvelteKit](https://joshuanussbaum.podia.com/data-driven-sveltekit-with-prisma)
-## Overview
-
-This is an "E-mail service provider" app, similar to MailChimp or CovertKit.
 
 ## Course covers:
 
