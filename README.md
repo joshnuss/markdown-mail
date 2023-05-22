@@ -1,9 +1,9 @@
 markdown-mail
 -------------
 
-This is an "E-mail service provider" app, similar to MailChimp or CovertKit.
+This is an "E-mail service provider" app, similar to [MailChimp](https://mailchimp.com) or [ConvertKit](https://convertkit.com).
 
-It's an example of using Prisma + SvelteKit.
+It's an example of using [Prisma](https://prisma.io) + [SvelteKit](https://kit.svelte.dev).
 
 From the video course [Build database apps with SvelteKit](https://joshuanussbaum.podia.com/data-driven-sveltekit-with-prisma)
 
@@ -21,7 +21,7 @@ From the video course [Build database apps with SvelteKit](https://joshuanussbau
 - Generators
 - Middlewares
 - Extensions
-- Deployment with Vercel and Neon Postgres
+- Deployment with [Vercel](https://vercel.com) and [Neon Postgres](https://neon.tech)
 - Migrating in production
 
 ## License
